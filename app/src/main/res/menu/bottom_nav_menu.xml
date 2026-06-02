@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
-        android:id="@+id/homeFragment"
-        android:icon="@android:drawable/ic_menu_today"
-        android:title="Beranda" />
-
+        android:id="@+id/exploreFragment"
+        android:icon="@drawable/ic_explore"
+        android:title="Explore" />
     <item
-        android:id="@+id/historyFragment"
-        android:icon="@android:drawable/ic_menu_recent_history"
-        android:title="Riwayat" />
-
+        android:id="@+id/bookingsFragment"
+        android:icon="@drawable/ic_booking"
+        android:title="Bookings" />
     <item
-        android:id="@+id/notificationFragment"
-        android:icon="@android:drawable/ic_dialog_info"
-        android:title="Notifikasi" />
-
+        android:id="@+id/notificationFragment" android:icon="@drawable/ic_notification"
+        android:title="Notification" />
     <item
         android:id="@+id/profileFragment"
-        android:icon="@android:drawable/ic_menu_myplaces"
-        android:title="Profil" />
-
+        android:icon="@drawable/ic_user"
+        android:title="Profile" />
 </menu>

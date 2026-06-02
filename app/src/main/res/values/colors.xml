@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/colors.xml -->
+<resources>
+    <color name="primary">#1B4F72</color>
+    <color name="primary_dark">#154360</color>
+    <color name="primary_light">#D6EAF8</color>
+    <color name="accent">#2ECC71</color>
+    <color name="accent_dark">#27AE60</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray_light">#F5F5F5</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="gray_dark">#616161</color>
+    <color name="divider">#E0E0E0</color>
+
+    <!-- Status booking -->
+    <color name="status_pending">#F39C12</color>
+    <color name="status_waiting">#2980B9</color>
+    <color name="status_confirmed">#27AE60</color>
+    <color name="status_rejected">#E74C3C</color>
+    <color name="status_cancelled">#95A5A6</color>
+    <color name="status_done">#7F8C8D</color>
+
+    <!-- Slot waktu -->
+    <color name="slot_available">#E8F8F0</color>
+    <color name="slot_available_stroke">#27AE60</color>
+    <color name="slot_taken">#FDECEA</color>
+    <color name="slot_taken_stroke">#E74C3C</color>
+    <color name="slot_selected">#1B4F72</color>
+</resources>

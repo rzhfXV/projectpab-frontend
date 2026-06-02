@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Permission wajib untuk akses internet ke backend -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Booking"
+        android:usesCleartextTraffic="true">
+        <!--
+            usesCleartextTraffic="true" diperlukan karena backend kita
+            masih HTTP (bukan HTTPS) selama development.
+            Hapus ini saat production dan ganti ke HTTPS.
+        -->
+
+        <!-- SplashActivity sebagai launcher (cek token, arahkan ke login/home) -->
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Booking.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Auth: Login dan Register -->
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Booking.NoActionBar" />
+        <activity
+            android:name=".ui.auth.RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Booking.NoActionBar" />
+
+        <!-- Main: Navigasi utama dengan bottom navigation -->
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Booking.NoActionBar" />
+
+        <!-- Detail lapangan dan booking -->
+        <activity
+            android:name=".ui.court.CourtDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Booking.NoActionBar" />
+        <activity
+            android:name=".ui.booking.BookingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Booking.NoActionBar" />
+        <activity
+            android:name=".ui.booking.BookingDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Booking.NoActionBar" />
+
+        <!-- Payment -->
+        <activity
+            android:name=".ui.payment.PaymentActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Booking.NoActionBar" />
+
+    </application>
+
+</manifest>

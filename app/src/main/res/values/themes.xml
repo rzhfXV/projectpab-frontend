@@ -1,0 +1,39 @@
+<!-- res/values/themes.xml -->
+<resources>
+    <style name="Theme.Booking" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">@color/primary</item>
+    </style>
+
+    <style name="Theme.Booking.NoActionBar" parent="Theme.Booking">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Style untuk input field -->
+    <style name="InputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="hintTextColor">@color/primary</item>
+    </style>
+
+    <!-- Style untuk tombol utama -->
+    <style name="ButtonPrimary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+    </style>
+
+    <!-- Style untuk tombol outlined -->
+    <style name="ButtonOutlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/primary</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+</resources>

@@ -67,6 +67,8 @@ dependencies {
     // ── CircleImageView (foto profil bulat) ──────────────────────────
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
     // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

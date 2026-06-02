@@ -55,7 +55,6 @@
             android:layout_height="wrap_content"
             android:hint="Nama Lengkap"
             android:layout_marginTop="32dp"
-            app:startIconDrawable="@android:drawable/ic_menu_myplaces"
             app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -75,7 +74,6 @@
             android:layout_height="wrap_content"
             android:hint="Email"
             android:layout_marginTop="16dp"
-            app:startIconDrawable="@android:drawable/ic_dialog_email"
             app:layout_constraintTop_toBottomOf="@id/tilName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -95,7 +93,6 @@
             android:layout_height="wrap_content"
             android:hint="Nomor HP"
             android:layout_marginTop="16dp"
-            app:startIconDrawable="@android:drawable/ic_menu_call"
             app:layout_constraintTop_toBottomOf="@id/tilEmail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -115,7 +112,6 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:layout_marginTop="16dp"
-            app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
             app:endIconMode="password_toggle"
             app:layout_constraintTop_toBottomOf="@id/tilPhone"
             app:layout_constraintStart_toStartOf="parent"

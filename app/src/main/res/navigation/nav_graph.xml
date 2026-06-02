@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.kel6.booking.ui.main.home.HomeFragment"
+        android:label="Beranda" />
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.kel6.booking.ui.main.history.HistoryFragment"
+        android:label="Riwayat" />
+
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.kel6.booking.ui.main.notification.NotificationFragment"
+        android:label="Notifikasi" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.kel6.booking.ui.main.profile.ProfileFragment"
+        android:label="Profil" />
+
+</navigation>

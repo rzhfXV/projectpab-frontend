@@ -35,16 +35,17 @@ class CourtAdapter(
             binding.tvDescription.text = court.description ?: "Lapangan padel berkualitas"
             binding.tvPrice.text      = "${court.pricePerHour.toRupiah()}/jam"
 
-            // Load foto lapangan
-            if (!court.photoUrl.isNullOrEmpty()) {
-                val baseUrl = binding.root.context.getString(R.string.base_url)
-                Glide.with(binding.root.context)
-                    .load("${baseUrl}api/files/${court.photoUrl}")
-                    .placeholder(android.R.drawable.ic_menu_gallery)
-                    .error(android.R.drawable.ic_menu_gallery)
-                    .centerCrop()
-                    .into(binding.ivCourtPhoto)
-            }
+            // Load foto lapangan dari drawable yang baru ditambahkan
+            val lapDrawables = intArrayOf(
+                R.drawable.lap1, R.drawable.lap2, 
+                R.drawable.lap3, R.drawable.lap4, R.drawable.lap5
+            )
+            val imageRes = lapDrawables[Math.abs(court.id.toInt()) % lapDrawables.size]
+            
+            Glide.with(binding.root.context)
+                .load(imageRes)
+                .centerCrop()
+                .into(binding.ivCourtPhoto)
 
             binding.root.setOnClickListener { onItemClick(court) }
             binding.btnBook.setOnClickListener { onItemClick(court) }

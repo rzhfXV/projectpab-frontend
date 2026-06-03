@@ -53,7 +53,7 @@
                         android:id="@+id/ivAvatar"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@mipmap/ic_launcher_round" />
+                        android:src="@mipmap/icon" />
 
                     <TextView
                         android:id="@+id/tvName"

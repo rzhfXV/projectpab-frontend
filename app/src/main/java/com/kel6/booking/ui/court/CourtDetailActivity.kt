@@ -77,14 +77,17 @@ class CourtDetailActivity : AppCompatActivity() {
         // Toolbar title
         binding.toolbar.title = court.name
 
-        // Foto
-        if (!court.photoUrl.isNullOrEmpty()) {
-            val baseUrl = getString(R.string.base_url)
-            Glide.with(this)
-                .load("${baseUrl}api/files/${court.photoUrl}")
-                .centerCrop()
-                .into(binding.ivCourtPhoto)
-        }
+        // Foto dari drawable
+        val lapDrawables = intArrayOf(
+            R.drawable.lap1, R.drawable.lap2, 
+            R.drawable.lap3, R.drawable.lap4, R.drawable.lap5
+        )
+        val imageRes = lapDrawables[Math.abs(court.id.toInt()) % lapDrawables.size]
+        
+        Glide.with(this)
+            .load(imageRes)
+            .centerCrop()
+            .into(binding.ivCourtPhoto)
 
         binding.tvCourtName.text  = court.name
         binding.tvDescription.text = court.description ?: "Lapangan padel berkualitas"

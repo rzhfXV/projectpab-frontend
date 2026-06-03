@@ -19,9 +19,15 @@ object RetrofitClient {
 
     fun getInstance(context: Context): ApiService {
         if (instance == null) {
-            instance = buildRetrofit(context).create(ApiService::class.java)
+            // Selalu pakai applicationContext untuk hindari context leak
+            instance = buildRetrofit(context.applicationContext).create(ApiService::class.java)
         }
         return instance!!
+    }
+
+    /** Panggil saat logout agar token lama tidak tersisa di interceptor cache */
+    fun reset() {
+        instance = null
     }
 
     private fun buildRetrofit(context: Context): Retrofit {

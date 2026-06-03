@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_light">
+    android:background="?android:attr/colorBackground">
 
     <!-- Collapsing toolbar dengan foto lapangan -->
     <com.google.android.material.appbar.AppBarLayout
@@ -84,7 +84,7 @@
                         android:text="Nama Lapangan"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@color/black" />
+                        android:textColor="?attr/colorOnSurface" />
 
                     <TextView
                         android:id="@+id/tvDescription"
@@ -92,7 +92,7 @@
                         android:layout_height="wrap_content"
                         android:text="Deskripsi lapangan"
                         android:textSize="14sp"
-                        android:textColor="@color/gray_dark"
+                        android:textColor="?android:attr/textColorSecondary"
                         android:layout_marginTop="8dp" />
 
                     <View
@@ -112,7 +112,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@android:drawable/ic_dialog_info"
-                            android:imageTintList="@android:color/holo_green_dark" />
+                            app:tint="@android:color/holo_green_dark" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -120,7 +120,7 @@
                             android:layout_weight="1"
                             android:text="Harga per jam"
                             android:textSize="14sp"
-                            android:textColor="@color/gray_dark"
+                            android:textColor="?android:attr/textColorSecondary"
                             android:layout_marginStart="8dp" />
 
                         <TextView
@@ -156,7 +156,7 @@
                         android:text="Jam Operasional"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
+                        android:textColor="?attr/colorOnSurface"
                         android:layout_marginBottom="10dp" />
 
                     <androidx.recyclerview.widget.RecyclerView

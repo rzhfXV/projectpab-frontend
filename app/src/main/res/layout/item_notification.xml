@@ -29,7 +29,7 @@
             android:text="Judul Notifikasi"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnSurface"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@id/dotUnread"
             app:layout_constraintEnd_toStartOf="@id/tvTime"
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:text="10:30"
             android:textSize="11sp"
-            android:textColor="@color/gray"
+            android:textColor="?android:attr/textColorSecondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:text="Pesan notifikasi"
             android:textSize="13sp"
-            android:textColor="@color/gray_dark"
+            android:textColor="?android:attr/textColorSecondary"
             android:maxLines="2"
             android:ellipsize="end"
             android:layout_marginStart="10dp"

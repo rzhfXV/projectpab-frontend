@@ -25,6 +25,8 @@ class UserPreferences(private val context: Context) {
     val token: Flow<String?> = context.dataStore.data.map { it[KEY_TOKEN] }
     val userId: Flow<Long?>  = context.dataStore.data.map { it[KEY_USER_ID] }
     val userName: Flow<String?> = context.dataStore.data.map { it[KEY_NAME] }
+    val userEmail: Flow<String?> = context.dataStore.data.map { it[KEY_EMAIL] }
+    val userPhone: Flow<String?> = context.dataStore.data.map { it[KEY_PHONE] }
     val userRole: Flow<String?> = context.dataStore.data.map { it[KEY_ROLE] }
     val isLoggedIn: Flow<Boolean> = token.map { !it.isNullOrEmpty() }
 

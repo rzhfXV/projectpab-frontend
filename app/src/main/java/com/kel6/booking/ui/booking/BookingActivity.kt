@@ -15,6 +15,7 @@ import com.kel6.booking.data.model.SlotResponse
 import com.kel6.booking.data.remote.RetrofitClient
 import com.kel6.booking.databinding.ActivityBookingBinding
 import com.kel6.booking.databinding.ItemSlotBinding
+import com.kel6.booking.ui.payment.PaymentActivity
 import com.kel6.booking.utils.Constants
 import com.kel6.booking.utils.hide
 import com.kel6.booking.utils.show
@@ -163,8 +164,8 @@ class BookingActivity : AppCompatActivity() {
                 val request = BookingRequest(
                     courtId     = courtId,
                     bookingDate = selectedDate,
-                    startTime   = selectedStartTime,
-                    endTime     = selectedEndTime,
+                    startTime   = "$selectedStartTime:00",  // API butuh HH:mm:ss
+                    endTime     = "$selectedEndTime:00",    // API butuh HH:mm:ss
                     notes       = binding.etNotes.text?.toString()?.trim()
                 )
 
@@ -173,10 +174,10 @@ class BookingActivity : AppCompatActivity() {
 
                 if (response.isSuccessful && response.body()?.success == true) {
                     val booking = response.body()!!.data!!
-                    toast("Booking berhasil dibuat!")
+                    toast("Booking berhasil! Lanjutkan ke pembayaran.")
 
-                    // Langsung ke halaman detail booking (untuk lanjut bayar)
-                    val intent = Intent(this@BookingActivity, BookingDetailActivity::class.java)
+                    // Langsung ke PaymentActivity untuk pilih metode & upload bukti
+                    val intent = Intent(this@BookingActivity, PaymentActivity::class.java)
                     intent.putExtra(Constants.EXTRA_BOOKING_ID, booking.id)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     startActivity(intent)

@@ -15,7 +15,7 @@
         android:layout_weight="1"
         android:text="Senin"
         android:textSize="14sp"
-        android:textColor="@color/gray_dark" />
+        android:textColor="?android:attr/textColorSecondary" />
 
     <TextView
         android:id="@+id/tvHours"
@@ -24,6 +24,6 @@
         android:text="06:00 – 22:00"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:textColor="@color/black" />
+        android:textColor="?attr/colorOnSurface" />
 
 </LinearLayout>

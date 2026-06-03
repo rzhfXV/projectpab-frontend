@@ -73,8 +73,8 @@ fun String.bookingStatusColor(): Int {
 
 fun String.bookingStatusLabel(): String {
     return when (this) {
-        "PENDING"         -> "Menunggu Pembayaran"
-        "WAITING_PAYMENT" -> "Menunggu Verifikasi"
+        "PENDING"         -> "Pilih Metode Pembayaran"
+        "WAITING_PAYMENT" -> "Menunggu Upload Bukti"
         "CONFIRMED"       -> "Dikonfirmasi"
         "REJECTED"        -> "Ditolak"
         "CANCELLED"       -> "Dibatalkan"

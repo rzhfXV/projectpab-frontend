@@ -15,6 +15,7 @@ class SlotAdapter(
     private val slots = mutableListOf<SlotResponse>()
     private var selectedStartIndex = -1
     private var selectedEndIndex   = -1
+    private var adapterContext: android.content.Context? = null
 
     fun submitSlots(newSlots: List<SlotResponse>) {
         slots.clear()
@@ -25,6 +26,7 @@ class SlotAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        adapterContext = parent.context
         val binding = ItemSlotBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
@@ -98,7 +100,7 @@ class SlotAdapter(
                 if (allAvailable) {
                     selectedEndIndex = position
                 } else {
-                    toast("Ada slot yang sudah terisi di rentang waktu ini")
+                    showToast("Ada slot yang sudah terisi di rentang waktu ini")
                     return
                 }
             }
@@ -121,7 +123,9 @@ class SlotAdapter(
         }
     }
 
-    private fun RecyclerView.ViewHolder.toast(msg: String) {
-        Toast.makeText(itemView.context, msg, Toast.LENGTH_SHORT).show()
+    private fun showToast(msg: String) {
+        adapterContext?.let {
+            Toast.makeText(it, msg, Toast.LENGTH_SHORT).show()
+        }
     }
 }

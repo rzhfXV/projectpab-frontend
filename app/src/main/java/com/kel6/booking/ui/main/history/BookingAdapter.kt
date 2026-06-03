@@ -43,7 +43,12 @@ class BookingAdapter(
             binding.tvPrice.text     = booking.totalPrice.toRupiah()
 
             // Chip status
-            val statusLabel = booking.status.bookingStatusLabel()
+            val statusLabel = if (booking.status == "WAITING_PAYMENT" && booking.paymentStatus == "UPLOADED") {
+                "Menunggu Verifikasi Admin"
+            } else {
+                booking.status.bookingStatusLabel()
+            }
+            
             val statusColor = booking.status.bookingStatusColor()
             binding.chipStatus.text = statusLabel
             binding.chipStatus.setChipBackgroundColorResource(

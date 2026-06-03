@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.kel6.booking.data.preferences.UserPreferences
+import com.kel6.booking.data.remote.RetrofitClient
 import com.kel6.booking.databinding.FragmentProfileBinding
 import com.kel6.booking.ui.auth.LoginActivity
 import com.kel6.booking.utils.startActivity
@@ -44,18 +45,16 @@ class ProfileFragment : Fragment() {
     private fun loadProfile() {
         lifecycleScope.launch {
             val prefs = UserPreferences(requireContext())
-            binding.tvName.text  = prefs.userName.first() ?: "-"
-            binding.tvEmail.text = prefs.userRole.first()?.let { role ->
-                // ambil email dari DataStore — tambahkan KEY_EMAIL jika perlu
-                "-"
-            } ?: "-"
-            binding.tvPhone.text = "-"
+            binding.tvName.text   = prefs.userName.first() ?: "-"
+            binding.tvEmail.text  = prefs.userEmail.first() ?: "-"
+            binding.tvPhone.text  = prefs.userPhone.first()?.takeIf { it.isNotEmpty() } ?: "-"
             binding.chipRole.text = prefs.userRole.first() ?: "USER"
         }
     }
 
     private fun doLogout() {
         lifecycleScope.launch {
+            RetrofitClient.reset()  // hapus instance agar token baru dipakai setelah login ulang
             UserPreferences(requireContext()).clearSession()
             requireContext().startActivity<LoginActivity>(clearStack = true)
         }

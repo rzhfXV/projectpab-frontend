@@ -25,6 +25,7 @@ class CourtDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCourtDetailBinding
     private var courtId: Long = 0
     private var courtName: String = ""
+    private var pricePerHour: Double = 0.0  // stored after court loads
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +43,7 @@ class CourtDetailActivity : AppCompatActivity() {
 
         binding.btnBookNow.setOnClickListener {
             val intent = Intent(this, BookingActivity::class.java)
-            intent.putExtra("price_per_hour", court.pricePerHour)
+            intent.putExtra("price_per_hour", pricePerHour)  // use stored field
             intent.putExtra(Constants.EXTRA_COURT_ID, courtId)
             intent.putExtra(Constants.EXTRA_COURT_NAME, courtName)
             startActivity(intent)
@@ -70,6 +71,9 @@ class CourtDetailActivity : AppCompatActivity() {
     }
 
     private fun bindData(court: CourtResponse) {
+        // Store price for BookNow button
+        pricePerHour = court.pricePerHour
+
         // Toolbar title
         binding.toolbar.title = court.name
 

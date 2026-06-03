@@ -18,7 +18,7 @@
         android:text="08:00"
         android:textSize="13sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorOnSurface"
         android:gravity="center"
         android:padding="10dp" />
 

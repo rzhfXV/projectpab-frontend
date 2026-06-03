@@ -3,12 +3,12 @@ package com.kel6.booking.ui.court
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.kel6.booking.data.model.CourtResponse
+import com.kel6.booking.data.model.ScheduleInfo
 import com.kel6.booking.databinding.ItemScheduleBinding
 
-// ── ScheduleAdapter (inline) ──────────────────────────────────
+// ── ScheduleAdapter ──────────────────────────────────────────
 class ScheduleAdapter(
-    private val schedules: List<CourtResponse.ScheduleInfo>
+    private val schedules: List<ScheduleInfo>
 ) : RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,7 +27,7 @@ class ScheduleAdapter(
     class ViewHolder(private val binding: ItemScheduleBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(schedule: CourtResponse.ScheduleInfo) {
+        fun bind(schedule: ScheduleInfo) {
             binding.tvDay.text   = schedule.dayName
             binding.tvHours.text = "${schedule.openTime} – ${schedule.closeTime}"
         }

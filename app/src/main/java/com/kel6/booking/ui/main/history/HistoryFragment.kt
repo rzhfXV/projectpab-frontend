@@ -75,11 +75,23 @@ class HistoryFragment : Fragment() {
                         binding.rvBookings.show()
                     }
                 } else {
-                    toast("Gagal memuat riwayat")
+                    val errorBodyStr = response.errorBody()?.string() ?: ""
+                    
+                    // Deteksi bug LazyInitializationException dari Backend
+                    val msg = if (response.code() == 500 && errorBodyStr.contains("could not initialize proxy")) {
+                        "Gagal memuat riwayat: Bug di server (LazyInitializationException). Hubungi admin server."
+                    } else {
+                        response.body()?.message ?: try {
+                            org.json.JSONObject(errorBodyStr).optString("message", "")
+                                .ifEmpty { "Error ${response.code()}: Gagal memuat riwayat" }
+                        } catch (_: Exception) { "Error ${response.code()}: Gagal memuat riwayat" }
+                    }
+                    
+                    toast(msg)
                     binding.layoutEmpty.show()
                 }
             } catch (e: Exception) {
-                toast("Tidak bisa terhubung ke server")
+                toast("Tidak bisa terhubung ke server. Cek koneksi dan IP backend.")
                 binding.layoutEmpty.show()
             } finally {
                 binding.progressBar.hide()

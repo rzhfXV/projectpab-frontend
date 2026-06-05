@@ -79,17 +79,31 @@ class NotificationFragment : Fragment() {
         lifecycleScope.launch {
             try {
                 val res = RetrofitClient.getInstance(requireContext()).getNotifications()
-                val list = res.body()?.data ?: emptyList()
-                if (list.isEmpty()) {
+                if (res.isSuccessful) {
+                    val list = res.body()?.data ?: emptyList()
+                    if (list.isEmpty()) {
+                        binding.layoutEmpty.show()
+                        binding.rvNotifications.hide()
+                    } else {
+                        adapter.submitList(list)
+                        binding.rvNotifications.show()
+                        binding.layoutEmpty.hide()
+                    }
+                } else {
+                    // Cek apakah error dari backend LazyInitializationException
+                    val errBody = res.errorBody()?.string() ?: ""
+                    if (res.code() == 500 && errBody.contains("could not initialize proxy")) {
+                        toast("Server error: relasi data belum dimuat. Coba lagi.")
+                    } else {
+                        toast("Gagal memuat notifikasi (${res.code()})")
+                    }
                     binding.layoutEmpty.show()
                     binding.rvNotifications.hide()
-                } else {
-                    adapter.submitList(list)
-                    binding.rvNotifications.show()
-                    binding.layoutEmpty.hide()
                 }
-            } catch (_: Exception) {
+            } catch (e: Exception) {
                 toast("Gagal memuat notifikasi")
+                binding.layoutEmpty.show()
+                binding.rvNotifications.hide()
             } finally {
                 binding.progressBar.hide()
             }
